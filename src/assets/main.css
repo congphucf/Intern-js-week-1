@@ -1,0 +1,267 @@
+@import './base.css';
+
+#app {
+  text-align: center;
+
+  background-color: #f7f2f2;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.store-heading {
+  margin-left: 250px;
+  padding: 30px;
+  color: #383983;
+  font-size: 40px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  background-color: #1e2c48;
+  color: aliceblue;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar-header {
+  font-size: 25px;
+  font-weight: bold;
+  height: 100px;
+  padding-top: 30px;
+}
+
+.sidebar-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #1e2c48;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background-color: #383983;
+}
+
+.sidebar-item.active {
+  background-color: #383983;
+}
+
+.store-heading {
+  margin-left: 250px;
+  padding: 30px;
+  color: #383983;
+  font-size: 40px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.filter {
+  background-color: #383983;
+  color: aliceblue;
+  width: 150px;
+  margin-left: 300px;
+  height: 60px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.flex-nav {
+  display: flex;
+  margin-left: 280px;
+  align-items: center;
+}
+
+.sort-filter {
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f7f2f2;
+  color: #383983;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sorted-by {
+  padding-right: 10px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.select {
+  width: 200px;
+  padding-left: 30px;
+  font-size: 20px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.card {
+  text-align: left;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  max-width: 250px;
+  font-family: Arial, sans-serif;
+  min-height: 300px;
+  height: 100%;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card hr {
+  border: 0;
+  height: 2px;
+  background-color: #383983;
+  margin: 8px 0;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-id {
+  font-size: 20px;
+  color: #383983;
+  font-style: strong;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #383983;
+}
+
+.card-toppings {
+  flex-grow: 1;
+}
+
+.card-topping {
+  margin-top: 10px;
+  color: #383983;
+  font-size: 18px;
+}
+
+.topping {
+  color: #383983;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  display: flex;
+  margin-top: auto;
+  padding: 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+.trending {
+  background-color: #383983;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  bottom: 0%;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #383983;
+  margin-left: auto;
+}
+
+.toppings-filter {
+  margin-left: 300px;
+  margin-right: 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  padding-left: 20px;
+}
+
+.toppings-header {
+  font-size: 25px;
+  height: 30px;
+  padding-top: 10px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.list-toppings {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.toppings-item {
+  font-size: 20px;
+  width: 300px;
+  display: flex;
+  align-items: flex-start;
+  color: #383983;
+}
+
+.toppings-list {
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toppings-item input[type='checkbox'] {
+  height: 20px;
+  width: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #34495e;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.toppings-item input[type='checkbox']:checked {
+  background-color: #383983;
+  border: 2px solid #fffffd;
+  outline: 2px solid #383983;
+}
