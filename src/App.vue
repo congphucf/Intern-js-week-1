@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import './assets/main.css'
+import axios from 'axios';
 
 const stores = ref([])
 const products = ref([])
@@ -42,14 +43,23 @@ function handlechangeFilter(event) {
 
 const loadData = async () => {
   try {
-    const response1 = await fetch('/stores.json')
+    const response1 = await fetch('/stores.json');
+    console.log(response1);
+
     if (response1.ok) {
       const data = await response1.json()
-      stores.value = data.stores
-      choosedStore.value = stores.value[0].id
-      console.log(choosedStore.value)
+      stores.value = data.stores;
+      console.log(stores.value);
+
+        if (stores.value.length > 0) {
+            choosedStore.value = stores.value[0].id;
+        } else {
+            console.warn('No stores found.');
+        }
+
+        console.log('Selected store ID:', choosedStore.value);
     } else {
-      console.error('Failed to load data:', response.statusText)
+        console.error('Failed to load data:', response1.statusText);
     }
 
     const response2 = await fetch('/products.json')
