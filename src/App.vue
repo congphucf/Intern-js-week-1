@@ -43,12 +43,9 @@ function handlechangeFilter(event) {
 
 const loadData = async () => {
   try {
-    const response1 = await fetch('/stores.json');
-    console.log(response1);
-
-    if (response1.ok) {
-      const data = await response1.json()
-      stores.value = data.stores;
+    await axios.get('http://127.0.0.1:8000/stores')
+    .then(response1 => {
+      stores.value =response1.data ;
       console.log(stores.value);
 
         if (stores.value.length > 0) {
@@ -58,27 +55,46 @@ const loadData = async () => {
         }
 
         console.log('Selected store ID:', choosedStore.value);
-    } else {
-        console.error('Failed to load data:', response1.statusText);
-    }
+    })
+    .catch(error => {
+      error = error.response ? error.response.data.message : 'Network Error';
+      console.error('There was an error:', error);
+    });
 
-    const response2 = await fetch('/products.json')
-    if (response2.ok) {
-      const data = await response2.json()
-      products.value = data.products
-      console.log(products.value)
-    } else {
-      console.error('Failed to load data:', response.statusText)
-    }
 
-    const responsenumberCardPerRow = await fetch('/storeProducts.json')
-    if (responsenumberCardPerRow.ok) {
-      const data = await responsenumberCardPerRow.json()
-      storeProduct.value = data.shopProducts
-      console.log(storeProduct.value)
-    } else {
-      console.error('Failed to load data:', response.statusText)
-    }
+    await axios.get('http://127.0.0.1:8000/products')
+    .then(response2 => {
+      products.value = response2.data;
+    })
+    .catch(error => {
+      error = error.response ? error.response.data.message : 'Network Error';
+      console.error('There was an error:', error);
+    });
+
+    // const response2 = await fetch('/products.json')
+    // if (response2.ok) {
+    //   const data = await response2.json()
+    //   products.value = data.products
+    // } else {
+    //   console.error('Failed to load data:', response.statusText)
+    // }
+
+    await axios.get('http://127.0.0.1:8000/storeproducts')
+    .then(response3 =>{
+      storeProduct.value = response3.data;
+    })
+    .catch(error => {
+      error = error.response ? error.response.data.message : 'Network Error';
+      console.error('There was an error:', error);
+    });
+
+    // const responsenumberCardPerRow = await fetch('/storeProducts.json')
+    // if (responsenumberCardPerRow.ok) {
+    //   const data = await responsenumberCardPerRow.json()
+    //   storeProduct.value = data.shopProducts
+    // } else {
+    //   console.error('Failed to load data:', response.statusText)
+    // }
 
     const choosedProductID = storeProduct.value
       .filter((sp) => sp.shop === choosedStore.value)
